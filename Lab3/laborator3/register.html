@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Înregistrare — Laborator 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- [Cerința 3.3] Pagina Register - register.html -->
+  <body class="light">
+    <div class="container">
+      <!-- Navigare -->
+      <nav class="navbar">
+        <div class="brand"><span>📝</span> Înregistrare</div>
+        <div class="nav-links">
+          <a href="index.html" class="btn btn-outline btn-sm">🏠 Acasă</a>
+          <a href="login.html" class="btn btn-outline btn-sm">🔐 Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm"
+            >📝 Înregistrare</a
+          >
+        </div>
+      </nav>
+
+      <div style="max-width: 440px; margin: 40px auto">
+        <div class="card">
+          <div style="text-align: center; margin-bottom: 24px">
+            <div style="font-size: 3rem; margin-bottom: 8px">📝</div>
+            <h1 style="font-size: 1.6rem; margin: 0">Creează un cont nou</h1>
+            <p style="opacity: 0.6; margin-top: 4px">
+              Completează formularul de mai jos
+            </p>
+          </div>
+
+          <!-- Mesaj de succes/eroare -->
+          <div id="alert-msg" class="alert"></div>
+
+          <!-- [Cerința 3.3.1] Formular de înregistrare -->
+          <form id="register-form">
+            <!-- Username (minim 3 caractere) -->
+            <div class="form-group">
+              <label for="username"
+                >👤 Username <span style="color: var(--danger)">*</span></label
+              >
+              <input
+                type="text"
+                id="username"
+                placeholder="Minim 3 caractere..."
+                required
+                minlength="3"
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Email (validare format) -->
+            <div class="form-group">
+              <label for="email"
+                >📧 Email <span style="color: var(--danger)">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                placeholder="exemplu@email.com"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Parolă (minim 6 caractere) -->
+            <div class="form-group">
+              <label for="password"
+                >🔑 Parolă <span style="color: var(--danger)">*</span></label
+              >
+              <input
+                type="password"
+                id="password"
+                placeholder="Minim 6 caractere..."
+                required
+                minlength="6"
+              />
+            </div>
+
+            <!-- Confirmare parolă -->
+            <div class="form-group">
+              <label for="confirmPassword"
+                >🔑 Confirmă parola
+                <span style="color: var(--danger)">*</span></label
+              >
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Repetă parola..."
+                required
+              />
+            </div>
+
+            <!-- Buton Submit -->
+            <button type="submit" class="btn btn-success btn-block">
+              ✅ Înregistrare
+            </button>
+          </form>
+
+          <hr class="divider" />
+
+          <p style="text-align: center; margin: 0">
+            Ai deja cont?
+            <a href="login.html"><strong>Autentifică-te aici</strong></a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        Laborator 3 — HTTP, Cookies și Sesiuni &copy; 2026
+      </div>
+    </div>
+
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+
+    <script>
+      /**
+       * [Cerința 3.3] Logica paginii de înregistrare
+       */
+
+      // Aplică tema
+      function applyTheme() {
+        const theme = CookieManager.get("theme") || "light";
+        document.body.className = theme;
+      }
+
+      // Inițializare utilizatori default (dacă nu există)
+      function initDefaultUsers() {
+        if (!StorageManager.getLocal("users")) {
+          const defaultUsers = [
+            {
+              id: 1,
+              username: "admin",
+              password: "password",
+              email: "admin@example.com",
+            },
+            {
+              id: 2,
+              username: "student",
+              password: "student123",
+              email: "student@example.com",
+            },
+          ];
+          StorageManager.setLocal("users", defaultUsers);
+        }
+      }
+
+      // Afișare alertă
+      function showAlert(message, type) {
+        const alert = document.getElementById("alert-msg");
+        alert.textContent = message;
+        alert.className = "alert alert-" + type + " show";
+      }
+
+      // [Cerința 3.3.2] Validări și înregistrare
+      document
+        .getElementById("register-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+          // [Cerința 3.3.2] Toate câmpurile obligatorii
+          if (!username || !email || !password || !confirmPassword) {
+            showAlert("Toate câmpurile sunt obligatorii!", "error");
+            return;
+          }
+
+          // [Cerința 3.3.2] Username minim 3 caractere
+          if (username.length < 3) {
+            showAlert(
+              "Username-ul trebuie să aibă minim 3 caractere!",
+              "error",
+            );
+            return;
+          }
+
+          // [Cerința 3.3.2] Validare format email
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            showAlert("Formatul email-ului este invalid!", "error");
+            return;
+          }
+
+          // [Cerința 3.3.2] Parolă minim 6 caractere
+          if (password.length < 6) {
+            showAlert("Parola trebuie să aibă minim 6 caractere!", "error");
+            return;
+          }
+
+          // [Cerința 3.3.2] Parolele trebuie să coincidă
+          if (password !== confirmPassword) {
+            showAlert("Parolele nu coincid!", "error");
+            return;
+          }
+
+          // Citim lista de utilizatori
+          var users = StorageManager.getLocal("users") || [];
+
+          // [Cerința 3.3.2] Username unic
+          if (
+            users.some(function (u) {
+              return u.username === username;
+            })
+          ) {
+            showAlert("Acest username este deja utilizat!", "error");
+            return;
+          }
+
+          // [Cerința 3.3.2] Email unic
+          if (
+            users.some(function (u) {
+              return u.email === email;
+            })
+          ) {
+            showAlert("Acest email este deja înregistrat!", "error");
+            return;
+          }
+
+          // [Cerința 3.3.3] Adăugăm utilizatorul nou
+          var newUser = {
+            id:
+              users.length > 0
+                ? Math.max.apply(
+                    null,
+                    users.map(function (u) {
+                      return u.id;
+                    }),
+                  ) + 1
+                : 1,
+            username: username,
+            password: password,
+            email: email,
+          };
+
+          users.push(newUser);
+          StorageManager.setLocal("users", users);
+
+          // Afișăm mesaj de succes
+          showAlert(
+            "Cont creat cu succes! Redirecționare către login...",
+            "success",
+          );
+
+          // Redirecționare către login.html
+          setTimeout(function () {
+            window.location.href = "login.html";
+          }, 1500);
+        });
+
+      // Inițializare
+      document.addEventListener("DOMContentLoaded", function () {
+        applyTheme();
+        initDefaultUsers();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informații Cookies & Storage — Laborator 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- [Cerința 2.6] Pagina Informații - cookies-info.html -->
+  <body class="light">
+    <div class="container">
+      <!-- Navigare -->
+      <nav class="navbar">
+        <div class="brand"><span>🍪</span> Cookies & Storage Info</div>
+        <div class="nav-links">
+          <a href="index.html" class="btn btn-outline btn-sm">🏠 Acasă</a>
+          <a href="preferences.html" class="btn btn-outline btn-sm"
+            >⚙️ Preferințe</a
+          >
+          <a href="cookies-info.html" class="btn btn-primary btn-sm"
+            >🍪 Cookies Info</a
+          >
+          <a href="login.html" class="btn btn-outline btn-sm"
+            >🔐 Autentificare</a
+          >
+        </div>
+      </nav>
+
+      <!-- ============================================
+             [Cerința 2.6.1] Secțiune Cookies
+             - Valoarea brută a document.cookie
+             - Tabel cu: Nume, Valoare, Lungime, Buton Șterge
+             ============================================ -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">🍪</span>
+          <h2 style="margin: 0">Cookies</h2>
+        </div>
+
+        <h3>Valoarea brută a <code>document.cookie</code>:</h3>
+        <div class="code-block" id="raw-cookies">— gol —</div>
+
+        <h3 style="margin-top: 20px">Tabel Cookies</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Nume</th>
+                <th>Valoare</th>
+                <th>Lungime</th>
+                <th>Acțiune</th>
+              </tr>
+            </thead>
+            <tbody id="cookies-tbody">
+              <tr>
+                <td colspan="4" class="empty-state">Nu există cookies.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ============================================
+             [Cerința 2.6.2] Secțiune localStorage
+             - JSON formatat cu toate datele
+             - Tabel cu: Cheie, Valoare, Dimensiune, Buton Șterge
+             ============================================ -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">💾</span>
+          <h2 style="margin: 0">localStorage</h2>
+        </div>
+
+        <h3>Date JSON formatate:</h3>
+        <div class="code-block" id="local-json">{ }</div>
+
+        <h3 style="margin-top: 20px">Tabel localStorage</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Cheie</th>
+                <th>Valoare</th>
+                <th>Dimensiune</th>
+                <th>Acțiune</th>
+              </tr>
+            </thead>
+            <tbody id="local-tbody">
+              <tr>
+                <td colspan="4" class="empty-state">
+                  Nu există date în localStorage.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ============================================
+             [Cerința 2.6.3] Secțiune sessionStorage
+             - JSON formatat cu toate datele
+             - Tabel cu: Cheie, Valoare, Dimensiune, Buton Șterge
+             ============================================ -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">⏱️</span>
+          <h2 style="margin: 0">sessionStorage</h2>
+        </div>
+
+        <h3>Date JSON formatate:</h3>
+        <div class="code-block" id="session-json">{ }</div>
+
+        <h3 style="margin-top: 20px">Tabel sessionStorage</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Cheie</th>
+                <th>Valoare</th>
+                <th>Dimensiune</th>
+                <th>Acțiune</th>
+              </tr>
+            </thead>
+            <tbody id="session-tbody">
+              <tr>
+                <td colspan="4" class="empty-state">
+                  Nu există date în sessionStorage.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ============================================
+             [Cerința 2.6.4] Tabel comparativ
+             Cookies vs localStorage vs sessionStorage
+             ============================================ -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">📊</span>
+          <h2 style="margin: 0">Tabel Comparativ</h2>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Criteriu</th>
+                <th>Cookies</th>
+                <th>localStorage</th>
+                <th>sessionStorage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Capacitate</strong></td>
+                <td>~4 KB per cookie</td>
+                <td>~5-10 MB</td>
+                <td>~5-10 MB</td>
+              </tr>
+              <tr>
+                <td><strong>Expirare</strong></td>
+                <td>Configurabilă (data de expirare)</td>
+                <td>Nu expiră (persistente)</td>
+                <td>La închiderea tab-ului/sesiunii</td>
+              </tr>
+              <tr>
+                <td><strong>Trimis la server?</strong></td>
+                <td>✅ Da, cu fiecare cerere HTTP</td>
+                <td>❌ Nu</td>
+                <td>❌ Nu</td>
+              </tr>
+              <tr>
+                <td><strong>Accesibil din?</strong></td>
+                <td>Client + Server (via headers)</td>
+                <td>Doar client (JavaScript)</td>
+                <td>Doar client (JavaScript), doar tab-ul curent</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="btn-group" style="justify-content: center">
+        <button class="btn btn-outline" onclick="renderAll()">
+          🔄 Reîmprospătează
+        </button>
+      </div>
+
+      <div class="footer">
+        Laborator 3 — HTTP, Cookies și Sesiuni &copy; 2026
+      </div>
+    </div>
+
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+
+    <script>
+      /**
+       * [Cerința 2.6] Logica paginii cookies-info
+       */
+
+      // Aplică tema curentă
+      function applyTheme() {
+        const theme = CookieManager.get("theme") || "light";
+        document.body.className = theme;
+      }
+
+      // Escape HTML
+      function escapeHTML(str) {
+        const div = document.createElement("div");
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      // Calculează dimensiunea unui string în bytes
+      function byteSize(str) {
+        return new Blob([str]).size;
+      }
+
+      // [Cerința 2.6.1] Randare cookies
+      function renderCookies() {
+        // Valoare brută
+        const raw = document.cookie || "— gol —";
+        document.getElementById("raw-cookies").textContent = raw;
+
+        // Tabel
+        const cookies = CookieManager.getAll();
+        const tbody = document.getElementById("cookies-tbody");
+        const keys = Object.keys(cookies);
+
+        if (keys.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="4" class="empty-state">Nu există cookies.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = keys
+          .map((name) => {
+            const val = cookies[name];
+            const len = (name + "=" + val).length;
+            return `<tr>
+                    <td><strong>${escapeHTML(name)}</strong></td>
+                    <td>${escapeHTML(val)}</td>
+                    <td>${len} caractere</td>
+                    <td><button class="btn btn-danger btn-sm" onclick="deleteCookie('${escapeHTML(name)}')">🗑️ Șterge</button></td>
+                </tr>`;
+          })
+          .join("");
+      }
+
+      // [Cerința 2.6.2] Randare localStorage
+      function renderLocal() {
+        const data = StorageManager.getAllLocal();
+        document.getElementById("local-json").textContent = JSON.stringify(
+          data,
+          null,
+          2,
+        );
+
+        const tbody = document.getElementById("local-tbody");
+        const keys = Object.keys(data);
+
+        if (keys.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="4" class="empty-state">Nu există date în localStorage.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = keys
+          .map((key) => {
+            let val = data[key];
+            const raw = localStorage.getItem(key) || "";
+            if (typeof val === "object") val = JSON.stringify(val);
+            return `<tr>
+                    <td><strong>${escapeHTML(key)}</strong></td>
+                    <td>${escapeHTML(String(val))}</td>
+                    <td>${byteSize(raw)} bytes</td>
+                    <td><button class="btn btn-danger btn-sm" onclick="deleteLocal('${escapeHTML(key)}')">🗑️ Șterge</button></td>
+                </tr>`;
+          })
+          .join("");
+      }
+
+      // [Cerința 2.6.3] Randare sessionStorage
+      function renderSession() {
+        const data = StorageManager.getAllSession();
+        document.getElementById("session-json").textContent = JSON.stringify(
+          data,
+          null,
+          2,
+        );
+
+        const tbody = document.getElementById("session-tbody");
+        const keys = Object.keys(data);
+
+        if (keys.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="4" class="empty-state">Nu există date în sessionStorage.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = keys
+          .map((key) => {
+            let val = data[key];
+            const raw = sessionStorage.getItem(key) || "";
+            if (typeof val === "object") val = JSON.stringify(val);
+            return `<tr>
+                    <td><strong>${escapeHTML(key)}</strong></td>
+                    <td>${escapeHTML(String(val))}</td>
+                    <td>${byteSize(raw)} bytes</td>
+                    <td><button class="btn btn-danger btn-sm" onclick="deleteSession('${escapeHTML(key)}')">🗑️ Șterge</button></td>
+                </tr>`;
+          })
+          .join("");
+      }
+
+      // Acțiuni de ștergere
+      function deleteCookie(name) {
+        CookieManager.delete(name);
+        renderAll();
+      }
+
+      function deleteLocal(key) {
+        StorageManager.removeLocal(key);
+        renderAll();
+      }
+
+      function deleteSession(key) {
+        StorageManager.removeSession(key);
+        renderAll();
+      }
+
+      function renderAll() {
+        applyTheme();
+        renderCookies();
+        renderLocal();
+        renderSession();
+      }
+
+      document.addEventListener("DOMContentLoaded", renderAll);
+    </script>
+  </body>
+</html>

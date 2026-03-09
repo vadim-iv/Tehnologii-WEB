@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preferințe — Laborator 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- [Cerința 2.5] Pagina Preferințe - preferences.html -->
+  <body class="light">
+    <div class="container">
+      <!-- Navigare -->
+      <nav class="navbar">
+        <div class="brand"><span>⚙️</span> Preferințe</div>
+        <div class="nav-links">
+          <a href="index.html" class="btn btn-outline btn-sm">🏠 Acasă</a>
+          <a href="preferences.html" class="btn btn-primary btn-sm"
+            >⚙️ Preferințe</a
+          >
+          <a href="cookies-info.html" class="btn btn-outline btn-sm"
+            >🍪 Cookies Info</a
+          >
+          <a href="login.html" class="btn btn-outline btn-sm"
+            >🔐 Autentificare</a
+          >
+        </div>
+      </nav>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">⚙️</span>
+          <h1 style="margin: 0; font-size: 1.5rem">Setări & Preferințe</h1>
+        </div>
+
+        <!-- Mesaj de succes/eroare -->
+        <div id="alert-msg" class="alert"></div>
+
+        <form id="preferences-form">
+          <!-- [Cerința 2.5.1] Nume utilizator → salvat în cookie "username" -->
+          <div class="form-group">
+            <label for="username">👤 Nume utilizator</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Introdu numele tău..."
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- [Cerința 2.5.2] Tema (select: Luminos/Întunecat) → salvat în cookie "theme" -->
+          <div class="form-group">
+            <label for="theme">🎨 Temă</label>
+            <select id="theme">
+              <option value="light">☀️ Luminos</option>
+              <option value="dark">🌙 Întunecat</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <!-- [Cerința 2.5.3] Limba → salvat în localStorage -->
+            <div class="form-group">
+              <label for="language">🌍 Limba</label>
+              <select id="language">
+                <option value="ro">🇷🇴 Română</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="fr">🇫🇷 Français</option>
+              </select>
+            </div>
+
+            <!-- [Cerința 2.5.4] Dimensiune font → salvat în localStorage -->
+            <div class="form-group">
+              <label for="fontSize">🔤 Dimensiune font</label>
+              <select id="fontSize">
+                <option value="14">14px</option>
+                <option value="16" selected>16px</option>
+                <option value="18">18px</option>
+                <option value="20">20px</option>
+              </select>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary">
+              💾 Salvează Preferințele
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="resetPreferences()"
+            >
+              🗑️ Resetează
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Previzualizare temă -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">👁️</span>
+          <h2 style="margin: 0">Previzualizare</h2>
+        </div>
+        <p>
+          Schimbă tema din selectorul de mai sus pentru a vedea efectul în timp
+          real.
+        </p>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-value">42</span>
+            <span class="stat-label">Exemplu card</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">A+</span>
+            <span class="stat-label">Notă finală</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        Laborator 3 — HTTP, Cookies și Sesiuni &copy; 2026
+      </div>
+    </div>
+
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+
+    <script>
+      /**
+       * [Cerința 2.5 - Comportament]
+       * - La încărcarea paginii, formularele sunt pre-populare cu valorile salvate
+       * - La submit, salvează preferințele și afișează mesaj de succes
+       * - După 1-2 secunde, redirecționează către index.html
+       * - Aplică tema curentă pe pagină
+       */
+
+      // Aplică tema curentă
+      function applyTheme(theme) {
+        document.body.className = theme || "light";
+      }
+
+      // Pre-populare formulare la încărcare
+      function loadPreferences() {
+        // Username din cookie
+        const username = CookieManager.get("username");
+        if (username) document.getElementById("username").value = username;
+
+        // Theme din cookie
+        const theme = CookieManager.get("theme") || "light";
+        document.getElementById("theme").value = theme;
+        applyTheme(theme);
+
+        // Limba din localStorage
+        const language = StorageManager.getLocal("language");
+        if (language) document.getElementById("language").value = language;
+
+        // Font size din localStorage
+        const fontSize = StorageManager.getLocal("fontSize");
+        if (fontSize) document.getElementById("fontSize").value = fontSize;
+      }
+
+      // Previzualizare temă în timp real
+      document.getElementById("theme").addEventListener("change", function () {
+        applyTheme(this.value);
+      });
+
+      // Salvare preferințe la submit
+      document
+        .getElementById("preferences-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // [Cerința 2.5.1] Salvează username în cookie
+          const username = document.getElementById("username").value.trim();
+          if (username) {
+            CookieManager.set("username", username, 365);
+          }
+
+          // [Cerința 2.5.2] Salvează tema în cookie
+          const theme = document.getElementById("theme").value;
+          CookieManager.set("theme", theme, 365);
+
+          // [Cerința 2.5.3] Salvează limba în localStorage
+          const language = document.getElementById("language").value;
+          StorageManager.setLocal("language", language);
+
+          // [Cerința 2.5.4] Salvează dimensiunea fontului în localStorage
+          const fontSize = document.getElementById("fontSize").value;
+          StorageManager.setLocal("fontSize", fontSize);
+
+          // Afișează mesaj de succes
+          showAlert(
+            "Preferințele au fost salvate cu succes! Redirecționare...",
+            "success",
+          );
+
+          // Redirecționare după 1.5 secunde
+          setTimeout(function () {
+            window.location.href = "index.html";
+          }, 1500);
+        });
+
+      // Resetare preferințe
+      function resetPreferences() {
+        if (!confirm("Sigur dorești să resetezi toate preferințele?")) return;
+
+        CookieManager.delete("username");
+        CookieManager.delete("theme");
+        StorageManager.removeLocal("language");
+        StorageManager.removeLocal("fontSize");
+
+        document.getElementById("username").value = "";
+        document.getElementById("theme").value = "light";
+        document.getElementById("language").value = "ro";
+        document.getElementById("fontSize").value = "16";
+        applyTheme("light");
+
+        showAlert("Preferințele au fost resetate.", "success");
+      }
+
+      // Afișare alertă
+      function showAlert(message, type) {
+        const alert = document.getElementById("alert-msg");
+        alert.textContent = message;
+        alert.className = "alert alert-" + type + " show";
+
+        setTimeout(function () {
+          alert.classList.remove("show");
+        }, 4000);
+      }
+
+      // Inițializare
+      document.addEventListener("DOMContentLoaded", loadPreferences);
+    </script>
+  </body>
+</html>

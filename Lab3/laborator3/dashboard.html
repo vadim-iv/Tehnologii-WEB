@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — Laborator 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- [Cerința 3.4] Dashboard - dashboard.html -->
+  <body class="light">
+    <div class="container">
+      <!-- Navigare -->
+      <nav class="navbar">
+        <div class="brand"><span>📊</span> Dashboard</div>
+        <div class="nav-links">
+          <a href="index.html" class="btn btn-outline btn-sm">🏠 Acasă</a>
+          <a href="preferences.html" class="btn btn-outline btn-sm"
+            >⚙️ Preferințe</a
+          >
+          <a href="cookies-info.html" class="btn btn-outline btn-sm"
+            >🍪 Cookies</a
+          >
+          <a href="dashboard.html" class="btn btn-primary btn-sm"
+            >📊 Dashboard</a
+          >
+          <a href="cart.html" class="btn btn-outline btn-sm">🛒 Coș</a>
+          <button class="btn btn-danger btn-sm" onclick="logout()">
+            🚪 Deconectare
+          </button>
+        </div>
+      </nav>
+
+      <!-- Banner bun venit -->
+      <div class="welcome-banner">
+        <h1>Bine ai venit, <span id="dash-username">—</span>! 🎉</h1>
+        <p class="subtitle">Aceasta este zona ta personală.</p>
+      </div>
+
+      <!-- [Cerința 3.4.2] Informații despre sesiune -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">🔑</span>
+          <h2 style="margin: 0">Informații Sesiune</h2>
+        </div>
+
+        <dl class="session-info">
+          <dt>ID Sesiune</dt>
+          <dd id="info-sessionId">—</dd>
+
+          <dt>Username</dt>
+          <dd id="info-username">—</dd>
+
+          <dt>Email</dt>
+          <dd id="info-email">—</dd>
+
+          <dt>Ora autentificării</dt>
+          <dd id="info-loginTime">—</dd>
+
+          <!-- [Cerința 3.4.2] Durata sesiunii (actualizată în timp real la fiecare secundă) -->
+          <dt>Durata sesiunii</dt>
+          <dd id="info-duration">0s</dd>
+        </dl>
+      </div>
+
+      <!-- Navigare rapidă -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">🧭</span>
+          <h2 style="margin: 0">Navigare Rapidă</h2>
+        </div>
+
+        <!-- [Cerința 3.4.4] Link către Coș de Cumpărături -->
+        <a href="cart.html" class="link-card">
+          <strong>🛒 Coș de Cumpărături</strong>
+          <p style="margin: 4px 0 0; opacity: 0.7; font-size: 0.9rem">
+            Adaugă și gestionează produse în coșul tău
+          </p>
+        </a>
+
+        <a href="preferences.html" class="link-card">
+          <strong>⚙️ Setări Preferințe</strong>
+          <p style="margin: 4px 0 0; opacity: 0.7; font-size: 0.9rem">
+            Schimbă tema, limba și alte preferințe
+          </p>
+        </a>
+
+        <a href="cookies-info.html" class="link-card">
+          <strong>🍪 Vizualizare Cookies & Storage</strong>
+          <p style="margin: 4px 0 0; opacity: 0.7; font-size: 0.9rem">
+            Inspectează datele salvate în browser
+          </p>
+        </a>
+
+        <!-- [Cerința 3.4.5] Experiment: deschide pagina într-un tab nou -->
+        <a href="dashboard.html" target="_blank" class="link-card">
+          <strong>🧪 Experiment: Deschide în tab nou</strong>
+          <p style="margin: 4px 0 0; opacity: 0.7; font-size: 0.9rem">
+            Observă că sessionStorage este diferit pentru fiecare tab!
+          </p>
+        </a>
+      </div>
+
+      <!-- [Cerința 3.4.3] Date brute din sessionStorage (debug) -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">🐛</span>
+          <h2 style="margin: 0">Date brute sessionStorage (Debug)</h2>
+        </div>
+        <div class="code-block" id="raw-session">{ }</div>
+      </div>
+
+      <!-- [Cerința 3.4.4] Buton Deconectare -->
+      <div class="btn-group" style="justify-content: center; margin-top: 20px">
+        <button class="btn btn-danger" onclick="logout()">
+          🚪 Deconectare
+        </button>
+      </div>
+
+      <div class="footer">
+        Laborator 3 — HTTP, Cookies și Sesiuni &copy; 2026
+      </div>
+    </div>
+
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+
+    <script>
+      /**
+       * [Cerința 3.4] Logica paginii Dashboard
+       */
+
+      var durationInterval = null;
+
+      // Aplică tema
+      function applyTheme() {
+        var theme = CookieManager.get("theme") || "light";
+        document.body.className = theme;
+      }
+
+      // [Cerința 3.4.1] Verifică autentificarea
+      function checkAuth() {
+        var session = StorageManager.getSession("currentSession");
+        if (!session) {
+          // Dacă nu există sesiune, redirecționăm către login
+          window.location.href = "login.html";
+          return null;
+        }
+        return session;
+      }
+
+      // [Cerința 3.4.2] Afișează informații despre sesiune
+      function displaySessionInfo(session) {
+        document.getElementById("dash-username").textContent = session.username;
+        document.getElementById("info-sessionId").textContent =
+          session.sessionId;
+        document.getElementById("info-username").textContent = session.username;
+        document.getElementById("info-email").textContent = session.email;
+
+        // Formatare oră autentificare
+        var loginDate = new Date(session.loginTime);
+        document.getElementById("info-loginTime").textContent =
+          loginDate.toLocaleString("ro-RO");
+
+        // [Cerința 3.4.3] Date brute din sessionStorage
+        var allSession = StorageManager.getAllSession();
+        document.getElementById("raw-session").textContent = JSON.stringify(
+          allSession,
+          null,
+          2,
+        );
+      }
+
+      // [Cerința 3.4.2] Durata sesiunii - actualizată la fiecare secundă
+      function startDurationTimer(session) {
+        function updateDuration() {
+          var loginTime = new Date(session.loginTime).getTime();
+          var now = Date.now();
+          var diff = Math.floor((now - loginTime) / 1000);
+
+          var hours = Math.floor(diff / 3600);
+          var minutes = Math.floor((diff % 3600) / 60);
+          var seconds = diff % 60;
+
+          var parts = [];
+          if (hours > 0) parts.push(hours + "h");
+          if (minutes > 0) parts.push(minutes + "m");
+          parts.push(seconds + "s");
+
+          document.getElementById("info-duration").textContent =
+            parts.join(" ");
+        }
+
+        updateDuration();
+        durationInterval = setInterval(updateDuration, 1000);
+      }
+
+      // [Cerința 3.4.4] Deconectare - șterge sesiunea și redirecționează
+      function logout() {
+        if (durationInterval) clearInterval(durationInterval);
+        StorageManager.removeSession("currentSession");
+        StorageManager.removeSession("cart");
+        window.location.href = "login.html";
+      }
+
+      // Inițializare
+      document.addEventListener("DOMContentLoaded", function () {
+        applyTheme();
+        var session = checkAuth();
+        if (session) {
+          displaySessionInfo(session);
+          startDurationTimer(session);
+        }
+      });
+    </script>
+  </body>
+</html>

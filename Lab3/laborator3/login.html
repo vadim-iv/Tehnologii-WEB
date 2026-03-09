@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autentificare — Laborator 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- [Cerința 3.2] Pagina Login - login.html -->
+  <body class="light">
+    <div class="container">
+      <!-- Navigare -->
+      <nav class="navbar">
+        <div class="brand"><span>🔐</span> Autentificare</div>
+        <div class="nav-links">
+          <a href="index.html" class="btn btn-outline btn-sm">🏠 Acasă</a>
+          <a href="preferences.html" class="btn btn-outline btn-sm"
+            >⚙️ Preferințe</a
+          >
+          <a href="cookies-info.html" class="btn btn-outline btn-sm"
+            >🍪 Cookies Info</a
+          >
+          <a href="login.html" class="btn btn-primary btn-sm">🔐 Login</a>
+        </div>
+      </nav>
+
+      <div style="max-width: 440px; margin: 40px auto">
+        <div class="card">
+          <div style="text-align: center; margin-bottom: 24px">
+            <div style="font-size: 3rem; margin-bottom: 8px">🔐</div>
+            <h1 style="font-size: 1.6rem; margin: 0">Autentificare</h1>
+            <p style="opacity: 0.6; margin-top: 4px">
+              Introdu datele tale pentru a continua
+            </p>
+          </div>
+
+          <!-- Mesaj de eroare/succes -->
+          <div id="alert-msg" class="alert"></div>
+
+          <!-- [Cerința 3.2.1] Formular de autentificare -->
+          <form id="login-form">
+            <!-- Input pentru username -->
+            <div class="form-group">
+              <label for="username">👤 Username</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Introdu username-ul..."
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Input pentru parolă -->
+            <div class="form-group">
+              <label for="password">🔑 Parolă</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Introdu parola..."
+                required
+              />
+            </div>
+
+            <!-- [Cerința 3.2.2] Checkbox "Ține-mă minte" -->
+            <div class="form-group">
+              <div class="checkbox-group">
+                <input type="checkbox" id="remember" />
+                <label for="remember">Ține-mă minte</label>
+              </div>
+            </div>
+
+            <!-- Buton Submit -->
+            <button type="submit" class="btn btn-primary btn-block">
+              🚀 Autentificare
+            </button>
+          </form>
+
+          <hr class="divider" />
+
+          <!-- [Cerința 3.2.4] Link către pagina de înregistrare -->
+          <p style="text-align: center; margin: 0">
+            Nu ai cont?
+            <a href="register.html"><strong>Înregistrează-te aici</strong></a>
+          </p>
+        </div>
+
+        <!-- Utilizatori de test - informativ -->
+        <div class="card" style="opacity: 0.8">
+          <div class="card-header">
+            <span class="icon">ℹ️</span>
+            <h3 style="margin: 0; font-size: 1rem">Conturi de test</h3>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Parolă</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>admin</td>
+                  <td>password</td>
+                </tr>
+                <tr>
+                  <td>student</td>
+                  <td>student123</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        Laborator 3 — HTTP, Cookies și Sesiuni &copy; 2026
+      </div>
+    </div>
+
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+
+    <script>
+      /**
+       * [Cerința 3.2] Logica paginii de autentificare
+       */
+
+      // Aplică tema
+      function applyTheme() {
+        const theme = CookieManager.get("theme") || "light";
+        document.body.className = theme;
+      }
+
+      // [Cerința 3.2.3] Utilizatori de test - creare la prima încărcare
+      function initDefaultUsers() {
+        if (!StorageManager.getLocal("users")) {
+          const defaultUsers = [
+            {
+              id: 1,
+              username: "admin",
+              password: "password",
+              email: "admin@example.com",
+            },
+            {
+              id: 2,
+              username: "student",
+              password: "student123",
+              email: "student@example.com",
+            },
+          ];
+          StorageManager.setLocal("users", defaultUsers);
+          console.log("Utilizatori de test creați:", defaultUsers);
+        }
+      }
+
+      // Pre-populare username dacă "Ține-mă minte" a fost bifat anterior
+      function loadRememberedUser() {
+        const remembered = StorageManager.getLocal("rememberedUser");
+        if (remembered) {
+          document.getElementById("username").value = remembered;
+          document.getElementById("remember").checked = true;
+        }
+      }
+
+      // Generare ID sesiune aleatoriu
+      function generateSessionId() {
+        return (
+          "sess_" +
+          Date.now() +
+          "_" +
+          Math.random().toString(36).substring(2, 10)
+        );
+      }
+
+      // Afișare alertă
+      function showAlert(message, type) {
+        const alert = document.getElementById("alert-msg");
+        alert.textContent = message;
+        alert.className = "alert alert-" + type + " show";
+      }
+
+      // [Cerința 3.2.2] Logică de autentificare
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value;
+          const remember = document.getElementById("remember").checked;
+
+          // Citim lista de utilizatori din localStorage
+          const users = StorageManager.getLocal("users") || [];
+
+          // Verificăm dacă username și parola se potrivesc
+          const user = users.find(function (u) {
+            return u.username === username && u.password === password;
+          });
+
+          if (!user) {
+            showAlert("Username sau parolă incorectă!", "error");
+            return;
+          }
+
+          // Dacă "Ține-mă minte" e bifat, salvăm username-ul în localStorage
+          if (remember) {
+            StorageManager.setLocal("rememberedUser", username);
+          } else {
+            StorageManager.removeLocal("rememberedUser");
+          }
+
+          // La autentificare reușită: creăm sesiunea în sessionStorage
+          const session = {
+            userId: user.id,
+            username: user.username,
+            email: user.email,
+            loginTime: new Date().toISOString(),
+            sessionId: generateSessionId(),
+          };
+          StorageManager.setSession("currentSession", session);
+
+          // Setăm și cookie-ul username
+          CookieManager.set("username", user.username, 365);
+
+          showAlert("Autentificare reușită! Redirecționare...", "success");
+
+          // Redirecționare către dashboard.html
+          setTimeout(function () {
+            window.location.href = "dashboard.html";
+          }, 1000);
+        });
+
+      // Inițializare
+      document.addEventListener("DOMContentLoaded", function () {
+        applyTheme();
+        initDefaultUsers();
+        loadRememberedUser();
+      });
+    </script>
+  </body>
+</html>

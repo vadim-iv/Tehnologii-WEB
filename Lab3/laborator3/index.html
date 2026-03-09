@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina Principală — Laborator 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- [Cerința 2.4] Pagina principală - index.html
+     Aplică tema salvată prin clasa "light" sau "dark" pe <body> -->
+  <body class="light">
+    <!-- [Cerința 2.4.4] Meniu de navigare cu link-uri -->
+    <div class="container">
+      <nav class="navbar">
+        <div class="brand"><span>🌐</span> Laborator 3</div>
+        <div class="nav-links">
+          <a href="index.html" class="btn btn-primary btn-sm">Acasă</a>
+          <a href="preferences.html" class="btn btn-outline btn-sm"
+            >⚙️ Preferințe</a
+          >
+          <a href="cookies-info.html" class="btn btn-outline btn-sm"
+            >🍪 Cookies Info</a
+          >
+          <a href="login.html" class="btn btn-outline btn-sm"
+            >🔐 Autentificare</a
+          >
+          <a href="dashboard.html" class="btn btn-outline btn-sm"
+            >📊 Dashboard</a
+          >
+          <a href="cart.html" class="btn btn-outline btn-sm">🛒 Coș</a>
+        </div>
+      </nav>
+
+      <!-- [Cerința 2.4.1] Mesaj de bun venit cu numele utilizatorului -->
+      <div class="welcome-banner">
+        <h1>Bun venit, <span id="welcome-name">Vizitator</span>! 👋</h1>
+        <p class="subtitle" id="welcome-subtitle">
+          Aceasta este pagina principală a aplicației Laborator 3.
+        </p>
+      </div>
+
+      <!-- [Cerința 2.4.2] Numără și afișează vizitele -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="visit-count">0</span>
+          <span class="stat-label">Vizite</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="cookie-count">0</span>
+          <span class="stat-label">Cookies</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="local-count">0</span>
+          <span class="stat-label">localStorage</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="session-count">0</span>
+          <span class="stat-label">sessionStorage</span>
+        </div>
+      </div>
+
+      <!-- [Cerința 2.4.5] Tabel cu toate cookie-urile active -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">🍪</span>
+          <h2 style="margin: 0">Cookies Active</h2>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Nume</th>
+                <th>Valoare</th>
+              </tr>
+            </thead>
+            <tbody id="cookies-table">
+              <tr>
+                <td colspan="2" class="empty-state">Nu există cookies.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- [Cerința 2.4.6] Tabel cu datele din localStorage -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">💾</span>
+          <h2 style="margin: 0">localStorage</h2>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Cheie</th>
+                <th>Valoare</th>
+              </tr>
+            </thead>
+            <tbody id="local-table">
+              <tr>
+                <td colspan="2" class="empty-state">
+                  Nu există date în localStorage.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- [Cerința 2.4.7] Tabel cu datele din sessionStorage -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">⏱️</span>
+          <h2 style="margin: 0">sessionStorage</h2>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Cheie</th>
+                <th>Valoare</th>
+              </tr>
+            </thead>
+            <tbody id="session-table">
+              <tr>
+                <td colspan="2" class="empty-state">
+                  Nu există date în sessionStorage.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- [Cerința 2.4.8] Buton "Șterge Tot" -->
+      <div class="btn-group" style="justify-content: center; margin-top: 24px">
+        <button class="btn btn-danger" onclick="deleteAll()">
+          🗑️ Șterge Tot (Cookies + Storage)
+        </button>
+        <button class="btn btn-outline" onclick="refreshData()">
+          🔄 Reîmprospătează
+        </button>
+      </div>
+
+      <div class="footer">
+        Laborator 3 — HTTP, Cookies și Sesiuni &copy; 2026
+      </div>
+    </div>
+
+    <!-- Include scripturile furnizate -->
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+
+    <script>
+      /**
+       * [Cerința 2.4] Logica paginii principale
+       */
+
+      // [Cerința 2.4.3] Aplică tema salvată din cookie
+      function applyTheme() {
+        const theme = CookieManager.get("theme") || "light";
+        document.body.className = theme;
+      }
+
+      // [Cerința 2.4.1] Afișează numele utilizatorului din cookie
+      function displayUsername() {
+        const username = CookieManager.get("username") || "Vizitator";
+        document.getElementById("welcome-name").textContent = username;
+
+        if (username !== "Vizitator") {
+          document.getElementById("welcome-subtitle").textContent =
+            "Ne bucurăm să te revedem! Explorează aplicația.";
+        }
+      }
+
+      // [Cerința 2.4.2] Numără și afișează vizitele
+      function trackVisits() {
+        let visits = parseInt(CookieManager.get("visits")) || 0;
+        visits++;
+        CookieManager.set("visits", visits, 365);
+        document.getElementById("visit-count").textContent = visits;
+      }
+
+      // [Cerința 2.4.5] Afișează tabelul de cookies
+      function renderCookiesTable() {
+        const cookies = CookieManager.getAll();
+        const tbody = document.getElementById("cookies-table");
+        const keys = Object.keys(cookies);
+
+        document.getElementById("cookie-count").textContent = keys.length;
+
+        if (keys.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="2" class="empty-state">Nu există cookies.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = keys
+          .map(
+            (name) =>
+              `<tr>
+                    <td><strong>${escapeHTML(name)}</strong></td>
+                    <td>${escapeHTML(cookies[name])}</td>
+                </tr>`,
+          )
+          .join("");
+      }
+
+      // [Cerința 2.4.6] Afișează tabelul localStorage
+      function renderLocalTable() {
+        const data = StorageManager.getAllLocal();
+        const tbody = document.getElementById("local-table");
+        const keys = Object.keys(data);
+
+        document.getElementById("local-count").textContent = keys.length;
+
+        if (keys.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="2" class="empty-state">Nu există date în localStorage.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = keys
+          .map((key) => {
+            let val = data[key];
+            if (typeof val === "object") val = JSON.stringify(val);
+            return `<tr>
+                    <td><strong>${escapeHTML(key)}</strong></td>
+                    <td>${escapeHTML(String(val))}</td>
+                </tr>`;
+          })
+          .join("");
+      }
+
+      // [Cerința 2.4.7] Afișează tabelul sessionStorage
+      function renderSessionTable() {
+        const data = StorageManager.getAllSession();
+        const tbody = document.getElementById("session-table");
+        const keys = Object.keys(data);
+
+        document.getElementById("session-count").textContent = keys.length;
+
+        if (keys.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="2" class="empty-state">Nu există date în sessionStorage.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = keys
+          .map((key) => {
+            let val = data[key];
+            if (typeof val === "object") val = JSON.stringify(val);
+            return `<tr>
+                    <td><strong>${escapeHTML(key)}</strong></td>
+                    <td>${escapeHTML(String(val))}</td>
+                </tr>`;
+          })
+          .join("");
+      }
+
+      // [Cerința 2.4.8] Șterge toate cookies + storage
+      function deleteAll() {
+        if (
+          !confirm(
+            "Sigur dorești să ștergi toate datele (cookies, localStorage, sessionStorage)?",
+          )
+        )
+          return;
+        CookieManager.deleteAll();
+        StorageManager.clearLocal();
+        StorageManager.clearSession();
+        refreshData();
+      }
+
+      function refreshData() {
+        applyTheme();
+        displayUsername();
+        renderCookiesTable();
+        renderLocalTable();
+        renderSessionTable();
+      }
+
+      // Escape HTML to prevent XSS
+      function escapeHTML(str) {
+        const div = document.createElement("div");
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      // Inițializare la încărcarea paginii
+      document.addEventListener("DOMContentLoaded", function () {
+        applyTheme();
+        displayUsername();
+        trackVisits();
+        renderCookiesTable();
+        renderLocalTable();
+        renderSessionTable();
+      });
+    </script>
+  </body>
+</html>
