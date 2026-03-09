@@ -50,5 +50,6 @@
 
 ### 1.2 & 1.3 — Exerciții Practice
 
-Aceste secțiuni necesită screenshot-uri din Developer Tools (F12 → Network) și din consolă.
-Se vor atașa separat ca imagini.
+![GET Request](screenshots/GET.png)
+![POST Request](screenshots/POST.png)
+
