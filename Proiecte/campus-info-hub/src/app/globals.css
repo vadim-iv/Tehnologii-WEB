@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+
+@theme {
+  /* colors */
+  --color-dark-blue: #1E3A8A;
+  --color-light-blue: #3B82F6;
+  --color-dim-white: #F9FAFB;
+  
+  --color-dark-text: #101828;
+  --color-light-text: #4A5565;
+  --color-gray-text: #6A7282;
+
+  /* spacings */
+  --spacing: 1rem;
+  --spacing-section-x: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 768px) {
+  html {
+    --spacing-section-x: 1rem;
+  }
+}
+
+
