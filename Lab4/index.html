@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator MVC</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="Aplicație calculator">
+      <section class="calculator" aria-label="Calculator">
+        <header class="display" aria-live="polite">
+          <p id="expression" class="expression">0</p>
+          <p id="result" class="result">0</p>
+        </header>
+
+        <div class="keys" role="group" aria-label="Taste calculator">
+          <button
+            class="btn utility"
+            data-action="clear"
+            aria-label="Șterge tot"
+          >
+            AC
+          </button>
+          <button
+            class="btn operator"
+            data-action="operator"
+            data-value="/"
+            aria-label="Împărțire"
+          >
+            /
+          </button>
+          <button
+            class="btn operator"
+            data-action="operator"
+            data-value="*"
+            aria-label="Înmulțire"
+          >
+            *
+          </button>
+          <button
+            class="btn operator"
+            data-action="operator"
+            data-value="-"
+            aria-label="Scădere"
+          >
+            -
+          </button>
+
+          <button class="btn" data-action="number" data-value="7">7</button>
+          <button class="btn" data-action="number" data-value="8">8</button>
+          <button class="btn" data-action="number" data-value="9">9</button>
+          <button
+            class="btn operator"
+            data-action="operator"
+            data-value="+"
+            aria-label="Adunare"
+          >
+            +
+          </button>
+
+          <button class="btn" data-action="number" data-value="4">4</button>
+          <button class="btn" data-action="number" data-value="5">5</button>
+          <button class="btn" data-action="number" data-value="6">6</button>
+          <button class="btn equal" data-action="equals" aria-label="Egal">
+            =
+          </button>
+
+          <button class="btn" data-action="number" data-value="1">1</button>
+          <button class="btn" data-action="number" data-value="2">2</button>
+          <button class="btn" data-action="number" data-value="3">3</button>
+          <button class="btn" data-action="number" data-value="0">0</button>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="controller.js"></script>
+  </body>
+</html>

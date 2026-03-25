@@ -1,0 +1,180 @@
+/*
+  Fișier de stil pentru aplicația CalculatorMVC.
+  Definește o interfață dark modernă, clară și responsive, cu focus pe lizibilitate.
+  Include variabile de design, layout centrat, efecte de hover/press și highlight activ
+  pentru operatorul selectat, astfel încât experiența să fie consistentă pe desktop și mobil.
+*/
+
+:root {
+  --bg-1: #101418;
+  --bg-2: #1b2733;
+  --card: #151f2a;
+  --card-soft: #1d2a37;
+  --text-main: #f3f7fb;
+  --text-muted: #a7b4c3;
+  --accent: #4cc9f0;
+  --accent-strong: #1fa4d1;
+  --op: #2f4153;
+  --op-active: #3f5d7a;
+  --danger: #ef476f;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI Variable", "Trebuchet MS", "Verdana", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(76, 201, 240, 0.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(239, 71, 111, 0.14),
+      transparent 30%
+    ),
+    linear-gradient(140deg, var(--bg-1), var(--bg-2));
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.app {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.calculator {
+  width: min(100%, 380px);
+  background: linear-gradient(
+    180deg,
+    rgba(29, 42, 55, 0.95),
+    rgba(21, 31, 42, 0.98)
+  );
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateY(10px);
+  opacity: 0;
+  animation: slide-in 500ms ease forwards;
+}
+
+.display {
+  background: rgba(8, 12, 17, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+
+.expression {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  min-height: 1.3rem;
+  word-break: break-all;
+}
+
+.result {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: right;
+  word-break: break-all;
+}
+
+.result.error {
+  color: var(--danger);
+  font-size: clamp(1rem, 4.5vw, 1.25rem);
+  text-align: right;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.8rem;
+  background: var(--card-soft);
+  color: var(--text-main);
+  font-size: 1.15rem;
+  font-weight: 600;
+  min-height: 58px;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    filter 180ms ease,
+    background-color 180ms ease;
+  box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.06);
+}
+
+.btn:hover {
+  filter: brightness(1.12);
+}
+
+.btn:active,
+.btn.is-pressed {
+  transform: translateY(2px) scale(0.98);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.operator {
+  background: var(--op);
+}
+
+.operator.active {
+  background: var(--op-active);
+  box-shadow:
+    0 0 0 2px rgba(76, 201, 240, 0.45),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.08);
+}
+
+.utility {
+  background: rgba(239, 71, 111, 0.22);
+}
+
+.equal {
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  color: #07202a;
+}
+
+@keyframes slide-in {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 420px) {
+  .calculator {
+    padding: 0.8rem;
+    border-radius: 1rem;
+  }
+
+  .btn {
+    min-height: 52px;
+    font-size: 1.05rem;
+  }
+}
