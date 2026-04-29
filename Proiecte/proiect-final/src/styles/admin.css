@@ -1,0 +1,213 @@
+.mobile-warning {
+    display: none;
+    height: calc(100vh - 4rem);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    color: var(--white);
+}
+
+.warning-content h1 {
+    font-family: 'Cinzel', serif;
+    margin: 1.5rem 0 1rem;
+    font-size: 2rem;
+    color: var(--gold);
+}
+
+.warning-content p {
+    color: var(--light-gray);
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.admin-dashboard {
+    margin-top: 4rem;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    color: var(--light-gray);
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+    border-radius: 0.5rem;
+}
+
+.tab-btn:hover {
+    color: var(--white);
+    background: var(--dark-gray);
+}
+
+.tab-btn.active {
+    color: var(--white);
+    background: var(--gray);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.tab-header h3 {
+    color: var(--white);
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+}
+
+.add-btn {
+    background: var(--white);
+    color: var(--black);
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.add-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Table Styles */
+.admin-table-wrapper {
+    background: var(--dark-gray);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--thin-border);
+    margin-bottom: 3rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--white);
+}
+
+th, td {
+    padding: 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--gray);
+}
+
+th {
+    background: var(--gray);
+    font-weight: 600;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+.edit-btn { background: var(--white); color: #000; }
+.delete-btn { border: 1px solid var(--white); color: var(--white); }
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fade-in 0.3s ease-out forwards;
+}
+
+.modal.hidden { display: none !important; }
+
+.modal-content {
+    background: var(--dark-gray);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid var(--gray);
+    animation: scale-up 0.3s ease-out forwards;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.modal-header h3 {
+    color: var(--white);
+    font-family: 'Cinzel', serif;
+}
+
+#closeModal {
+    color: var(--light-gray);
+    font-size: 2rem;
+}
+
+.admin-form .input-container {
+    margin-bottom: 1.5rem;
+}
+
+input, textarea, select {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid var(--gray);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+label {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.submit-btn {
+    width: 100%;
+    background: var(--white);
+    color: var(--black);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+@media (max-width: 1200px) {
+    .admin-dashboard {
+        display: none !important;
+    }
+    .mobile-warning {
+        display: flex;
+    }
+}

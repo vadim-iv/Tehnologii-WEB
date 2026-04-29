@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Capital Cinema</title>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="./styles/contact.css" />
+</head>
+<body>
+    
+    <!-- MARK: Nav -->
+    <nav>
+        <a href="index.html"><img src="/logo.svg" alt="website_logo" draggable="false"></a>
+
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./schedule.html">Schedule</a></li>
+          <li class="active"><a href="">Contact</a></li>
+        </ul>
+
+        <div class="right-btns">
+          <div class="tickets-btn-container">
+            <button class="tickets-btn" id="ticketsToggle">Tickets</button>
+            <div class="scroll-box">
+              <div class="tickets-box hidden" id="ticketsBox">
+                <div class="content">
+                  <div class="test"></div>
+                  <div class="test"></div>
+                  <div class="test"></div>
+                  <!-- booked tickets -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="./login.html"><button class="login-btn">Log In</button></a>
+          <div class="burger-btn closed" id="menuBtn">
+            <img class="closed-icon" src="/icons/burger.svg" alt="menu" draggable="false">
+            <img class="open-icon" src="/icons/cross.svg" alt="menu" draggable="false">
+
+            <div class="menu-container hidden" id="menuBox">
+              <div class="content">
+                <p><a href="./index.html">Home</a></p>
+                <p><a href="./schedule.html">Schedule</a></p>
+                <p><a href="">Contact</a></p>
+                <p><a href="./login.html">Log in</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- MARK: Get in touch section -->
+     <section class="contact-section">
+         <div class="section-title">
+             <div class="title-line"></div>
+             <h2>get in touch</h2>
+             <div class="title-line"></div>
+         </div>
+
+         <div class="contact-container">
+            <div class="social-media">
+                <p>Check us on social media</p>
+                <div class="contact-social-links">
+                    <a target="_blank" href="https://facebook.com">Facebook</a>
+                    <div class="vertical-line"></div>
+
+                    <a target="_blank" href="https://instagram.com">Instagram</a>
+                    <div class="vertical-line"></div>
+
+                    <a target="_blank" href="https://x.com">X</a>
+                </div>
+            </div>
+
+            <div class="empty-span"></div>
+
+            <div class="contact-card">
+                <img src="/icons/sales_icon.svg" alt="sales" draggable="false">
+
+                <div class="contact-info">
+                    <h3 class="title">Sales department</h3>
+                    <p class="description">Contact our sales department</p>
+                    <p class="underlined">sales@capital.com</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <img src="/icons/support_icon.svg" alt="sales" draggable="false">
+
+                <div class="contact-info">
+                    <h3 class="title">Support team</h3>
+                    <p class="description">Speak to our support team.</p>
+                    <p class="underlined">support@capital.com</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <img src="/icons/adress_icon.svg" alt="support" draggable="false">
+
+                <div class="contact-info">
+                    <h3 class="title">Visit us</h3>
+                    <p class="description">Leicester Square, London</p>
+                    <p class="underlined">View on Google Maps</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <img src="/icons/phone_icon.svg" alt="sales" draggable="false">
+
+                <div class="contact-info">
+                    <h3 class="title">Call us</h3>
+                    <p class="description">Mon - Fri | 08:00  - 22:00</p>
+                    <p class="underlined">+44 20 7946 0123</p>
+                </div>
+            </div>
+         </div>
+     </section>
+
+     <!-- MARK: FAQ Section -->
+     <section class="faq-section">
+        <div class="section-title">
+          <div class="title-line"></div>
+          <h2 class="long-title">Frequently asked questions</h2>
+          <h2 class="short-title">FAQ</h2>
+          <div class="title-line"></div>
+        </div>
+
+        <div class="questions-container">
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>How can I book tickets online?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>You can book tickets directly on our website by selecting your movie, showtime, and preferred seats. Payment can be made securely online, and you'll receive a digital ticket via email.</p>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>Does Capital Cinema offer discounts for students?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>Yes! We offer discounted tickets for students. Just bring a valid ID when purchasing your ticket at the counter or select the discount option when booking online.</p>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>What types of movies do you screen?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>We feature a mix of the latest Hollywood blockbusters, independent films, and classic screenings. Special events and themed movie nights are also available.</p>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>Can I bring outside food and drinks?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>Outside food and drinks are not allowed. However, we offer a variety of snacks, popcorn, and beverages at our concession stand.</p>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>What happens if I’m late for my movie?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>We recommend arriving at least 15 minutes before your showtime. If you’re late, you may still enter, but we encourage you to be mindful of other guests.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- MARK: Footer -->
+      <footer>
+        <nav>
+          <a href="./index.html">
+            <img src="/logo.svg" alt="logo" draggable="false">
+          </a>
+
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./contact.html">Schedule</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </nav>
+
+        <p>Copyright © 2025 CapitalCinema</p>
+      </footer>
+
+      <script type="module" src="./js/shared.js"></script>
+      <script src="./js/contact.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+.contact-section{
+    max-width: 82rem;
+
+    margin: 7rem auto 0;
+}
+
+.contact-container{
+    display: grid;
+    gap: 2rem;
+    grid-template-rows: 2.5rem 18rem;
+    grid-template-columns: repeat(4, 1fr);
+    
+    margin-top: 2rem;
+}
+
+.social-media{
+    grid-column: span 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark-gray);
+    border-radius: 0.5rem;
+
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+}
+
+.social-media p{
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.contact-social-links{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.contact-social-links a{
+    color: var(--light-gray);
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.contact-social-links a:hover{
+    color: var(--white);
+}
+
+.contact-social-links .vertical-line{
+    height: 1.5rem;
+    width: 1px;
+    background-color: var(--gray);
+}
+
+.empty-span{
+    grid-column: span 2;
+}
+
+.contact-card{
+    background-color: var(--dark-gray);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    padding: 1.5rem;
+}
+
+.contact-card img{
+    width: 4rem;
+    height: 4rem;
+}
+
+.contact-info .title{
+    color: var(--white);
+    font-size: 1.125rem;
+}
+
+.contact-info .description{
+    color: var(--light-gray);
+    font-size: 0.875rem;
+
+    margin-top: 0.25rem;
+}
+
+.contact-info .underlined{
+    color: var(--white);
+    font-size: 0.875rem;
+    text-decoration: underline;
+    cursor: pointer;
+
+    margin-top: 0.25rem;
+}
+
+/* MARK: FAQ */
+
+.faq-section{
+    max-width: 82rem;
+    margin: 7rem auto 0;
+}
+
+.questions-container{
+    background-color: var(--dark-gray);
+    border-radius: 1rem;
+    box-shadow: var(--thin-border);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    padding: 3rem 1.5rem;
+    margin-top: 2rem;
+}
+
+.question-card{
+    border-bottom: 1px solid var(--light-gray);
+
+    padding-bottom: 0.5rem;
+
+}
+
+.question-card .question{
+    color: var(--white);
+    font-size: 1.125rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.question-card .question img{
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.question-card .question .question-text{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.question-card .question .question-text img{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.question-card .answer{
+    color: var(--light-gray);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s linear;
+
+    padding-left: 2rem;
+}
+
+.answer.open{
+    max-height: 2.5rem;
+}
+
+.faq-arrow{
+    transition: transform 0.3s;
+}
+
+.faq-arrow.open{
+    transform: rotate(180deg);
+}
+
+@media (max-width: 1200px){
+    .social-media{
+        grid-column: span 4;
+    }
+
+    .empty-span{
+        display: none;
+    }
+}
+
+@media (max-width: 992px){
+    .social-media{
+        grid-column: span 2;
+    }
+
+    .contact-container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2.5rem 14rem 14rem;
+    }
+}
+
+@media (max-width: 768px){
+    .contact-section{
+        max-width: 26rem;
+        
+        margin-top: 4rem;
+    }
+    
+    .social-media{
+        grid-column: span 1;
+        justify-content: center;
+
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .social-media p{
+        display: none;
+    }
+
+    .contact-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 2.5rem 14rem 14rem 14rem;
+    }
+
+    .contact-social-links{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .faq-section{
+        margin-top: 4rem;
+        max-width: 26rem;
+    }
+
+    .faq-section{
+        margin-top: 4rem;
+        max-width: 26rem;
+    }
+
+    .answer.open{
+        max-height: 7rem;
+    }
+}
+
+

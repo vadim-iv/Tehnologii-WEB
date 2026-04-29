@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Log in | Capital Cinema</title>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
+</head>
+<body>
+    <!-- MARK: Nav -->
+    <nav>
+        <a href="index.html"><img src="/logo.svg" alt="website_logo" draggable="false"></a>
+
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./schedule.html">Schedule</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <div class="right-btns">
+          <div class="tickets-btn-container">
+            <button class="tickets-btn" id="ticketsToggle">Tickets</button>
+            <div class="scroll-box">
+              <div class="tickets-box hidden" id="ticketsBox">
+                <div class="content">
+                  <div class="test"></div>
+                  <div class="test"></div>
+                  <div class="test"></div>
+                  <!-- booked tickets -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="login-btn">Log In</button>
+          <div class="burger-btn closed" id="menuBtn">
+            <img class="closed-icon" src="/icons/burger.svg" alt="menu" draggable="false">
+            <img class="open-icon" src="/icons/cross.svg" alt="menu" draggable="false">
+
+            <div class="menu-container hidden" id="menuBox">
+              <div class="content">
+                <p><a href="./index.html">Home</a></p>
+                <p><a href="">Schedule</a></p>
+                <p><a href="./contact.html">Contact</a></p>
+                <p><a href="#">Log in</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- MARK: Log in -->
+      <section class="login-section" id="loginBox">
+        <div class="login-container">
+          <h3>welcome back</h3>
+          <p>Don’t have an account yet? <span id="goToSignUp">Sign up</span></p>
+  
+          <div class="login-form">
+            <form action="">
+              <div class="input-container">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email</label>
+              </div>
+  
+              <div class="input-container">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+              </div>
+  
+              <button class="submit-btn" type="submit">Log in</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARK: Sign up -->
+      <section class="signup-section hidden" id="signupBox">
+        <div class="signup-container">
+          <h3>Sign Up & Enjoy</h3>
+          <p>Already have an account? <span id="goToLogin">Log in</span></p>
+  
+          <div class="signup-form">
+            <form action="">
+              <div class="input-container">
+                <input type="text" id="firstName" name="firstName" required>
+                <label for="firstName">First name</label>
+              </div>
+
+              <div class="input-container">
+                <input type="text" id="phone" name="phone" required>
+                <label for="phone">Phone number</label>
+              </div>
+
+              <div class="input-container">
+                <input type="text" id="lastName" name="lastName" required>
+                <label for="lastName">Last name</label>
+              </div>
+
+              <div class="input-container">
+                <input type="password" id="signupPassword" name="password" required>
+                <label for="signupPassword">Password</label>
+              </div>
+
+              <div class="input-container">
+                <input type="email" id="signupEmail" name="email" required>
+                <label for="signupEmail">Email</label>
+              </div>
+
+              <div class="input-container">
+                <input type="password" id="repeatPassword" name="repeatPassword" required>
+                <label for="repeatPassword">Repeat password</label>
+              </div>
+  
+  
+              <button class="submit-btn sign-up-submit" type="submit">Sign up</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    
+      <!-- MARK: Footer -->
+      <footer style="margin-top: 0;">
+        <nav>
+          <a href="./index.html">
+            <img src="/logo.svg" alt="logo" draggable="false">
+          </a>
+
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./schedule.html">Schedule</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <p>Copyright © 2025 CapitalCinema</p>
+      </footer>
+
+    <!-- Script -->
+    <script type="module" src="./js/shared.js"></script>
+    <script type="module" src="./js/login.js"></script>
+</body>
+</html>

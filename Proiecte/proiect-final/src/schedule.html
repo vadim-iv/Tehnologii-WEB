@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule | Capital Cinema</title>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="./styles/schedule.css" />
+</head>
+<body>
+  <!-- MARK: Nav -->
+    <nav>
+        <a href="index.html"><img src="/logo.svg" alt="website_logo" draggable="false"></a>
+
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li class="active"><a href="">Schedule</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <div class="right-btns">
+          <div class="tickets-btn-container">
+            <button class="tickets-btn" id="ticketsToggle">Tickets</button>
+            <div class="scroll-box">
+              <div class="tickets-box hidden" id="ticketsBox">
+                <div class="content">
+                  <div class="test"></div>
+                  <div class="test"></div>
+                  <div class="test"></div>
+                  <!-- booked tickets -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="./login.html"><button class="login-btn">Log In</button></a>
+          <div class="burger-btn closed" id="menuBtn">
+            <img class="closed-icon" src="/icons/burger.svg" alt="menu" draggable="false">
+            <img class="open-icon" src="/icons/cross.svg" alt="menu" draggable="false">
+
+            <div class="menu-container hidden" id="menuBox">
+              <div class="content">
+                <p><a href="./index.html">Home</a></p>
+                <p><a href="">Schedule</a></p>
+                <p><a href="./contact.html">Contact</a></p>
+                <p><a href="./login.html">Log in</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- MARK: Schedule -->
+      <section class="schedule-section">
+        <div class="dates-container">
+            <div class="dates" id="dates">
+                <!-- Dates from db -->
+            </div>
+        </div>
+
+        <div class="movies-container" id="moviesContainer">
+            <div class="movie-card">
+                <div class="movie-card-left">
+                    <img src="/movies/captain_america.webp" alt="movie_img" draggable="false">
+                    <div class="movie-info">
+                        <div class="top-part">
+                            <h2>Captain America: Brave new world</h2>
+                            <p class="genres">action / adventure / sci-fi / superhero</p>
+                            <p class="description">Sam Wilson, the new Captain America, finds himself in the middle of an international incident and must discover the motive behind a nefarious global plan.</p>
+    
+                            <div class="hours">
+                                <div class="hour">16:00</div>
+                                <div class="hour">19:00</div>
+                                <div class="hour">21:00</div>
+                                <div class="hour">22:00</div>
+                            </div>
+                        </div>
+
+                        <button class="book-btn">
+                            Book
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card-right">
+                    <p class="title">Choose your seats</p>
+
+                    <div class="seats"></div>
+
+                    <div class="legend">
+                        <div class="category">
+                            <div class="circle reserved"></div>
+                            <p>Reserved</p>
+                        </div>
+
+                        <div class="category">
+                            <div class="circle available"></div>
+                            <p>Available</p>
+                        </div>
+
+                        <div class="category">
+                            <div class="circle selected"></div>
+                            <p>Selected</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+
+      <!-- MARK: Footer -->
+      <footer>
+        <nav>
+          <a href="./index.html">
+            <img src="/logo.svg" alt="logo" draggable="false">
+          </a>
+
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="">Schedule</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <p>Copyright © 2025 CapitalCinema</p>
+      </footer>
+    
+      <script type="module" src="./js/shared.js"></script>
+      <script src="./js/schedule.js" type="module"></script>
+</body>
+</html>

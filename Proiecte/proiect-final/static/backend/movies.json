@@ -1,0 +1,36 @@
+{
+    "movieImages" : [
+        {
+            "id": 1,
+            "url": "/movies/captain_america.webp"
+        },
+        {
+            "id": 2,
+            "url": "/movies/the_monkey.webp"
+        },
+        {
+            "id": 3,
+            "url": "/movies/william_tell.webp"
+        },
+        {
+            "id": 4,
+            "url": "/movies/novocaine.webp"
+        },
+        {
+            "id": 5,
+            "url": "/movies/gladiator.webp"
+        },
+        {
+            "id": 6,
+            "url": "/movies/smile.webp"
+        },
+        {
+            "id": 7,
+            "url": "/movies/openheimer.webp"
+        },
+        {
+            "id": 8,
+            "url": "/movies/venom.webp"
+        }
+    ]
+}

@@ -1,0 +1,624 @@
+/* MARK: Quick Book */
+.quick-book{
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    background-color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 56rem;
+    border-radius: 1rem;
+    box-shadow: var(--thin-border);
+    transition: transform 0.3s, opacity 0.3s;
+
+    padding: 0.75rem 1.5rem;
+}
+
+.quick-book.hidden{
+    transform: translateX(-50%) translateY(calc(100% + 1.5rem));
+    opacity: 0;
+}
+
+.quick-book p{
+    color: var(--white);
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.quick-book-form{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+    height: 2.5rem;
+}
+
+.quick-book-form .select-box-container{
+    position: relative;
+}
+
+.quick-book-form .select-box-container img{
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+
+.quick-book-form .select-box-container select{
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    color: var(--light-gray);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+
+    padding: 0 1rem;
+}
+
+.quick-book-form .select-box-container select option{
+    padding: 1rem;
+}
+
+.quick-book-form button{
+    border: 1px solid var(--white);
+    color: var(--white);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background-color: transparent;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.quick-book-form button:hover{
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* MARK: Header */
+
+header{
+    height: 100vh;
+}
+
+.hero-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 6.25rem;
+}
+
+.hero-section h1{
+    font-family: "Cinzel", serif;
+    font-weight: 400;
+    font-size: 3rem;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-section p{
+    font-size: 1rem;
+    color: var(--light-gray);
+    text-align: center;
+    max-width: 52rem;
+
+    margin-top: 1.5rem;
+}
+
+/* MARK: About */
+.about-section{
+    display: flex;
+    gap: 2rem;
+    max-width: 82rem;
+
+    margin: 0 auto;
+}
+
+.about-left{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 26rem;
+}
+
+.about-text-card{
+    background-color: var(--dark-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: 12rem;
+    box-shadow: var(--thin-border);
+}
+
+.about-text-card p{
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.about-text-card .links{
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-text-card .links .social-links{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.about-text-card .links .social-links a{
+    height: 2rem;
+    width: 2rem;
+    transition: opacity 0.3s;
+}
+
+.about-text-card .links .social-links a:hover{
+    opacity: 0.7;
+}
+
+.about-text-card .links .contact-btn button{
+    background-color: var(--gray);
+    color: var(--light-gray);
+    height: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+
+    padding: 0 1.5rem;
+}
+
+.about-text-card .links .contact-btn button:hover{
+    opacity: 0.7;
+}
+
+.about-features-cards{
+    display: flex;
+    gap: 1.5rem;
+    height: 11rem;
+}
+
+.about-prices{
+    background-color: var(--dark-gray);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--thin-border);
+}
+
+.about-prices h3 {
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.prices-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.prices-container .price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    font-size: 0.875rem;
+}
+
+.prices-container .price p:nth-child(1){
+    color: var(--light-gray);
+}
+
+.about-middle{
+    flex: 1;
+    min-height: 100%;
+    border-radius: 1rem;
+    background-image: url('../../static/cinema.webp');
+    background-position: center;
+    background-size: cover;
+    filter: var(--filter);
+}
+
+.about-right{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 26rem;
+}
+
+.movie-trailer{
+    height: 12rem;
+    background-color: var(--dark-gray);
+    border-radius: 1rem;
+}
+
+.movie-trailer video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    filter: var(--video-filter);
+    transition: filter 0.3s;
+}
+
+.movie-trailer video:hover{
+    filter: none;
+}
+
+.next-movies{
+    height: 11rem;
+    background-color: var(--dark-gray);
+    border-radius: 1rem;
+    box-shadow: var(--thin-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 1.5rem;
+}
+
+.next-movies .top-part{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.next-movies .top-part h3{
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.next-movies .top-part a{
+    font-size: 0.875rem;
+    color: var(--light-gray);
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.next-movies .top-part a:hover{
+    color: var(--white);
+}
+
+.next-movies-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.next-movies-container .movie{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: var(--white);
+    font-size: 0.875rem;
+}
+
+.next-movies-container .movie .date{
+    color: var(--light-gray);
+}
+
+
+/* MARK: Streaming now */
+
+.streaming-section{
+    max-width: 82rem;
+
+    margin: 7rem auto 0;
+}
+
+.streaming-section .slider-arrow{
+    width: 2rem;
+    height: 2rem;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.streaming-section .slider-arrow:hover{
+    opacity: 0.7;
+}
+
+.movies-slider-wrapper{
+    width: 100%;
+    overflow: hidden;
+
+    margin-top: 2rem;
+}
+
+.movies-slider-track{
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    height: 28rem;
+}
+
+.movies-slider-track .slide{
+    width: 19rem;
+    flex-shrink: 0;
+    background-color: var(--dark-gray);
+    border-radius: 1rem;
+
+    padding: 0.5rem;
+}
+
+.movies-slider-track .slide img{
+    width: 100%;
+    height: 100%;
+    filter: var(--filter);
+    object-fit: cover;
+    border-radius: 1rem;
+    user-select: none;
+    transition: filter 0.3s;
+}
+
+.movies-slider-track .slide img:hover{
+    filter: none;
+}
+
+/* MARK: Testimonials */
+.testimonials-section{
+    max-width: 82rem;
+    margin: 7rem auto 0;
+}
+
+.testimonials-cards{
+    display: flex;
+    border: 1px solid var(--light-gray);
+    border-radius: 1rem;
+    height: 25rem;
+
+    margin-top: 2rem;
+}
+
+.testimonials-cards .card{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    
+    flex: 0 0 0.5;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem 1rem;
+    border-left: 1px solid var(--light-gray);
+    transition: flex 0.3s linear;
+}
+
+.testimonials-cards .card:hover{
+    flex: 0 0 fit-content;
+}
+
+.testimonials-cards .card:hover .gradient-cover{
+    opacity: 0;
+}
+
+.testimonials-cards .card:first-child{
+    border-left: none;
+}
+
+.testimonials-cards .card .name{
+    white-space: nowrap;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.testimonials-cards .card .text-wrapper{
+    min-width: 19rem;
+    max-width: 19rem;
+
+    margin-top: 1.5rem;
+}
+
+.testimonials-cards .card .text-wrapper .text{
+    color: var(--light-gray);
+    font-size: 0.875rem;
+
+}
+
+.testimonials-cards .card .number{
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.gradient-cover{
+    border-radius: 1rem;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20,20,20,0) 0%, rgba(20,20,20,1) 100%);
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+/* MARK: FAQ */
+
+.faq-section{
+    max-width: 82rem;
+    margin: 7rem auto 0;
+}
+
+.questions-container{
+    background-color: var(--dark-gray);
+    border-radius: 1rem;
+    box-shadow: var(--thin-border);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    padding: 3rem 1.5rem;
+    margin-top: 2rem;
+}
+
+.question-card{
+    border-bottom: 1px solid var(--light-gray);
+
+    padding-bottom: 0.5rem;
+
+}
+
+.question-card .question{
+    color: var(--white);
+    font-size: 1.125rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.question-card .question img{
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.question-card .question .question-text{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.question-card .question .question-text img{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.question-card .answer{
+    color: var(--light-gray);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s linear;
+
+    padding-left: 2rem;
+}
+
+.answer.open{
+    max-height: 2.5rem;
+}
+
+.faq-arrow{
+    transition: transform 0.3s;
+}
+
+.faq-arrow.open{
+    transform: rotate(180deg);
+}
+
+/* MARK: Media queries */
+
+@media (max-width: 1200px){
+    .about-middle{
+        display: none;
+    }
+
+    .about-section{
+        justify-content: center;
+    }
+
+    .streaming-section{
+        max-width: 54rem;
+    }
+
+    .movies-slider-track{
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    header{
+        height: auto;
+        margin-bottom: 7rem;
+    }
+
+    .quick-book{
+        display: none;
+    }
+}
+
+@media (max-width: 832px){
+    .about-section{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .streaming-section .slider-arrow{
+        display: none;
+    }
+}
+
+@media (max-width: 768px){
+    header{
+        margin-bottom: 0rem;
+    }
+
+    .hero-section{
+        margin-top: 4rem;
+    }
+
+    .hero-section h1{
+        font-size: 2.5rem;
+    }
+
+    .about-section{
+        margin-top: 4rem;
+    }
+
+    .streaming-section{
+        margin-top: 4rem;
+        max-width: 26rem;
+    }
+
+    .movies-slider-track{
+        height: 39rem;
+    }
+
+    .testimonials-section{
+        margin-top: 4rem;
+        max-width: 26rem;
+    }
+
+    .testimonials-cards{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .testimonials-cards .card{
+        border: none;
+        border-top: 1px solid var(--light-gray);
+    }
+
+    .testimonials-cards .card:first-child{
+        border-top: none;
+    }
+
+    .gradient-cover{
+        display: none;
+    }
+
+    .testimonials-cards .card .number{
+        margin-top: 3rem;
+    }
+
+    .testimonials-cards .card .text-wrapper{
+        max-width: none;
+        min-width: 0;
+    }
+
+    .faq-section{
+        margin-top: 4rem;
+        max-width: 26rem;
+    }
+
+    .answer.open{
+        max-height: 7rem;
+    }
+}
+

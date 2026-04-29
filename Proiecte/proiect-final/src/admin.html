@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Capital Cinema</title>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="./styles/admin.css" />
+</head>
+<body>
+    <nav>
+        <a href="index.html"><img src="/logo.svg" alt="website_logo" draggable="false"></a>
+        <ul>
+            <li><a href="index.html">Back to Site</a></li>
+        </ul>
+        <div class="right-btns">
+            <button class="login-btn">Log Out</button>
+        </div>
+    </nav>
+    
+    <div class="mobile-warning">
+        <div class="warning-content">
+            <img src="/logo.svg" alt="logo">
+            <h1>Admin Panel Unavailable</h1>
+            <p>The administration dashboard is designed for desktop use only. Please use a screen wider than 1200px to manage the cinema.</p>
+            <a href="index.html" class="add-btn" style="display: inline-block; margin-top: 20px; text-decoration: none;">Back to Home</a>
+        </div>
+    </div>
+
+    <main class="admin-dashboard">
+        <header class="section-title">
+            <div class="title-line"></div>
+            <h2>Admin Dashboard</h2>
+            <div class="title-line"></div>
+        </header>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="movies">Movies</button>
+            <button class="tab-btn" data-tab="schedules">Schedules</button>
+            <button class="tab-btn" data-tab="users">Users</button>
+            <button class="tab-btn" data-tab="bookings">All Bookings</button>
+        </div>
+
+        <!-- Movies Section -->
+        <section id="moviesTab" class="tab-content active">
+            <div class="tab-header">
+                <h3>Manage Movies</h3>
+                <button class="add-btn" id="addMovieBtn">+ Add New Movie</button>
+            </div>
+            <div class="admin-table-wrapper">
+                <table id="moviesTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Genres</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loaded via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Schedules Section -->
+        <section id="schedulesTab" class="tab-content">
+            <div class="tab-header">
+                <h3>Manage Schedules</h3>
+                <button class="add-btn" id="addScheduleBtn">+ Add Show-time</button>
+            </div>
+            <div class="admin-table-wrapper">
+                <table id="schedulesTable">
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loaded via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Users Section -->
+        <section id="usersTab" class="tab-content">
+            <div class="tab-header">
+                <h3>System Users</h3>
+            </div>
+            <div class="admin-table-wrapper">
+                <table id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loaded via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Bookings Section -->
+        <section id="bookingsTab" class="tab-content">
+            <div class="tab-header">
+                <h3>All Reservations</h3>
+            </div>
+            <div class="admin-table-wrapper">
+                <table id="bookingsTable">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Movie</th>
+                            <th>Date/Time</th>
+                            <th>Seat</th>
+                            <th>Booked At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loaded via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Generic Modal -->
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Form Title</h3>
+                <button id="closeModal">&times;</button>
+            </div>
+            <form id="adminForm">
+                <div id="formFields">
+                    <!-- Dynamic fields -->
+                </div>
+                <button type="submit" class="submit-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="./js/shared.js"></script>
+    <script type="module" src="./js/admin.js"></script>
+</body>
+</html>

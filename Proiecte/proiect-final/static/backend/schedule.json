@@ -1,0 +1,245 @@
+{
+    "movies" : [
+        {
+            "date": "2025-03-21",
+            "name": "Captain America: Brave new world",
+            "genres": "action / adventure / sci-fi / superhero",
+            "description" : "Sam Wilson, the new Captain America, finds himself in the middle of an international incident and must discover the motive behind a nefarious global plan.",
+            "hours": ["18:30", "21:00", "23:00"],
+            "image": "/movies/captain_america.webp",
+            "seats_left": [
+                [-1, -1, 0, 0, 1],
+                [-1,  0, 1, 0, 0],
+                [ 1,  0, 0, 1, 1],
+                [ 0,  1, 0, 1, 0],
+                [ 1,  0, 1, 0, 1],
+                [ 1,  0, 1, 0, 0],
+                [ 1,  0, 1, 0, 0],
+                [-1,  0, 1, 0, 1],
+                [-1, -1, 1, 0, 1]
+            ],
+            "seats_right" : [
+                [ 0, 0, 0, -1, -1],
+                [ 0, 0, 1,  0, -1],
+                [ 1, 0, 0,  1,  1],
+                [ 0, 1, 0,  1,  0],
+                [ 1, 0, 1,  0,  1],
+                [ 1, 0, 1,  0,  0],
+                [ 1, 0, 1,  0,  0],
+                [ 1, 0, 1,  0, -1],
+                [ 1, 1, 1, -1, -1]
+            ]
+        },
+        {
+            "date": "2025-03-21",
+            "name": "The Monkey",
+            "genres": "dark comedy / splatter horror / horror",
+            "description" : "When twin brothers Bill and Hal find their father's old monkey toy in the attic, a series of gruesome deaths start. The siblings decide to throw the toy away and move on with their lives, growing apart over the years.",
+            "hours": ["21:30", "23:30"],
+            "image": "/movies/the_monkey.webp",
+            "seats_left": [
+                [-1, -1, 0, 0, 1],
+                [-1,  0, 1, 0, 0],
+                [ 1,  0, 0, 1, 1],
+                [ 0,  1, 0, 1, 0],
+                [ 1,  0, 1, 0, 1],
+                [ 1,  0, 0, 0, 0],
+                [ 1,  1, 0, 0, 0],
+                [-1,  0, 0, 0, 1],
+                [-1, -1, 1, 0, 1]
+            ],
+            "seats_right" : [
+                [ 0, 0, 0, -1, -1],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0,  1,  1],
+                [ 0, 1, 0,  1,  0],
+                [ 1, 0, 1,  0,  1],
+                [ 1, 0, 1,  0,  0],
+                [ 0, 0, 0,  0,  0],
+                [ 1, 0, 1,  0, -1],
+                [ 0, 0, 1, -1, -1]
+            ]
+        },
+        {
+            "date": "2025-03-21",
+            "name": "Novocaine",
+            "genres": "dark comedy / superhero / action / comedy / thriller",
+            "description" : "When the girl of his dreams is kidnapped, a man incapable of feeling physical pain turns his rare condition into an unexpected advantage in the fight to rescue her.",
+            "hours": ["21:30", "22:00", "23:00"],
+            "image": "/movies/novocaine.webp",
+            "seats_left": [
+                [-1, -1, 0, 0, 1],
+                [-1,  0, 1, 0, 0],
+                [ 1,  0, 0, 1, 1],
+                [ 0,  1, 0, 1, 0],
+                [ 1,  0, 1, 0, 1],
+                [ 1,  0, 1, 0, 0],
+                [ 1,  1, 0, 0, 0],
+                [-1,  1, 1, 0, 1],
+                [-1, -1, 1, 0, 1]
+            ],
+            "seats_right" : [
+                [ 0, 0, 0, -1, -1],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0,  1,  1],
+                [ 0, 1, 0,  1,  0],
+                [ 1, 0, 0,  0,  1],
+                [ 1, 0, 1,  0,  0],
+                [ 0, 0, 0,  0,  0],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0, -1, -1]
+            ]
+        },
+        {
+            "date": "2025-03-21",
+            "name": "William Tell",
+            "genres": "action / biography / drama / history / war",
+            "description" : "The narrative unfolds in the 14th Century amidst the days of the Holy Roman Empire where Europe's nations fiercely vie for supremacy and the ambitious Austrians, desiring more land, encroach upon Switzerland, a serene and pastoral nation.",
+            "hours": ["16:00", "19:00", "20:00"],
+            "image": "/movies/william_tell.webp",
+            "seats_left": [
+                [-1, -1, 0, 0, 1],
+                [-1,  0, 1, 0, 0],
+                [ 1,  0, 0, 1, 1],
+                [ 0,  1, 0, 1, 0],
+                [ 1,  0, 1, 0, 1],
+                [ 1,  0, 1, 0, 0],
+                [ 1,  1, 0, 0, 0],
+                [-1,  1, 1, 0, 1],
+                [-1, -1, 1, 0, 1]
+            ],
+            "seats_right" : [
+                [ 0, 0, 0, -1, -1],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0,  1,  1],
+                [ 0, 1, 0,  1,  0],
+                [ 1, 0, 0,  0,  1],
+                [ 1, 0, 1,  0,  0],
+                [ 0, 0, 0,  0,  0],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0, -1, -1]
+            ]
+        },
+        {
+            "date": "2025-03-22",
+            "name": "Gladiator II",
+            "genres": "action / epic / adventure / drama / history",
+            "description" : "After his home is conquered by the tyrannical emperors who now lead Rome, Lucius is forced to enter the Colosseum and must look to his past to find strength to return the glory of Rome to its people.",
+            "hours": ["19:00", "20:30", "21:00"],
+            "image": "/movies/gladiator.webp",
+            "seats_left": [
+                [-1, -1, 0, 0, 1],
+                [-1,  0, 0, 0, 0],
+                [ 1,  0, 0, 0, 1],
+                [ 0,  0, 0, 1, 0],
+                [ 1,  0, 0, 0, 1],
+                [ 1,  0, 1, 0, 0],
+                [ 1,  0, 0, 0, 0],
+                [-1,  0, 0, 0, 1],
+                [-1, -1, 0, 0, 1]
+            ],
+            "seats_right" : [
+                [ 0, 0, 0, -1, -1],
+                [ 0, 0, 0,  0, -1],
+                [ 1, 0, 0,  1,  1],
+                [ 0, 1, 0,  1,  0],
+                [ 0, 0, 0,  0,  1],
+                [ 0, 0, 1,  0,  0],
+                [ 1, 0, 0,  0,  0],
+                [ 0, 0, 0,  0, -1],
+                [ 1, 0, 0, -1, -1]
+            ]
+        },
+        {
+            "date": "2025-03-22",
+            "name": "Smile 2",
+            "genres": "horror / psychological horror / thriller",
+            "description" : "About to embark on a world tour, global pop sensation Skye Riley begins experiencing increasingly terrifying and inexplicable events. Overwhelmed by the escalating horrors and the pressures of fame, Skye is forced to face her past.",
+            "hours": ["22:30", "23:30"],
+            "image": "/movies/smile.webp",
+            "seats_left": [
+                [-1, -1, 0, 0, 1],
+                [-1,  0, 1, 0, 0],
+                [ 1,  0, 0, 1, 1],
+                [ 0,  1, 0, 1, 0],
+                [ 1,  0, 1, 0, 1],
+                [ 1,  0, 0, 0, 0],
+                [ 1,  1, 0, 0, 0],
+                [-1,  0, 0, 0, 1],
+                [-1, -1, 1, 0, 1]
+            ],
+            "seats_right" : [
+                [ 0, 0, 0, -1, -1],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0,  1,  1],
+                [ 0, 1, 0,  1,  0],
+                [ 1, 0, 1,  0,  1],
+                [ 1, 0, 1,  0,  0],
+                [ 0, 0, 0,  0,  0],
+                [ 1, 0, 1,  0, -1],
+                [ 0, 0, 1, -1, -1]
+            ]
+        },
+        {
+            "date": "2025-03-22",
+            "name": "Oppenheimer",
+            "genres": "biography / drama / history / thriller / war",
+            "description" : "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bombs that brought an end to World War II.",
+            "hours": ["21:30", "22:00", "23:00"],
+            "image": "/movies/openheimer.webp",
+            "seats_left": [
+                [-1, -1, 0, 0, 1],
+                [-1,  0, 1, 0, 0],
+                [ 1,  0, 0, 1, 1],
+                [ 0,  1, 0, 1, 0],
+                [ 1,  0, 1, 0, 1],
+                [ 1,  0, 1, 0, 0],
+                [ 1,  1, 0, 0, 0],
+                [-1,  1, 1, 0, 1],
+                [-1, -1, 1, 0, 1]
+            ],
+            "seats_right" : [
+                [ 0, 0, 0, -1, -1],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0,  1,  1],
+                [ 0, 1, 0,  1,  0],
+                [ 1, 0, 0,  0,  1],
+                [ 1, 0, 1,  0,  0],
+                [ 0, 0, 0,  0,  0],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0, -1, -1]
+            ]
+        },
+        {
+            "date": "2025-03-22",
+            "name": "Venom 3",
+            "genres": "action / sci-fi / superhero / thriller",
+            "description" : "Eddie Brock and Venom must make a devastating decision as they're pursued by a mysterious military man and alien monsters from Venom's home world.",
+            "hours": ["21:00", "22:00", "23:00"],
+            "image": "/movies/venom.webp",
+            "seats_left": [
+                [-1, -1, 0, 0, 1],
+                [-1,  0, 1, 0, 0],
+                [ 1,  0, 0, 1, 1],
+                [ 0,  1, 0, 1, 0],
+                [ 1,  0, 1, 0, 1],
+                [ 1,  0, 1, 0, 0],
+                [ 1,  1, 0, 0, 0],
+                [-1,  1, 1, 0, 1],
+                [-1, -1, 1, 0, 1]
+            ],
+            "seats_right" : [
+                [ 0, 0, 0, -1, -1],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0,  1,  1],
+                [ 0, 1, 0,  1,  0],
+                [ 1, 0, 0,  0,  1],
+                [ 1, 0, 1,  0,  0],
+                [ 0, 0, 0,  0,  0],
+                [ 0, 0, 1,  0, -1],
+                [ 0, 0, 0, -1, -1]
+            ]
+        }
+
+    ]
+}

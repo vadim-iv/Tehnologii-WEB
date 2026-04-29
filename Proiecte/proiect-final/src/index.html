@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Capital Cinema</title>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
+  </head>
+  <body>
+
+    <!-- MARK: Quick Book fixed -->
+     <div class="quick-book" id="quickBook">
+        <p>Quick Book</p>
+
+        <div class="quick-book-form">
+          <div class="select-box-container">
+            <select name="movie-select" id="movieSelect">
+              <option value="" disabled selected hidden>Movie</option>
+            </select>
+            
+            <img src="/icons/down-arrow.svg" alt="arrow" draggable="false">
+          </div>
+  
+          <div class="select-box-container">
+            <select name="date-select" id="dateSelect" disabled>
+              <option value="" disabled selected hidden>Day</option>
+            </select>
+            
+            <img src="/icons/down-arrow.svg" alt="arrow" draggable="false">
+          </div>
+
+          <div class="select-box-container">
+            <select name="time-select" id="timeSelect" disabled>
+              <option value="" disabled selected hidden>Hour</option>
+            </select>
+            
+            <img src="/icons/down-arrow.svg" alt="arrow" draggable="false">
+          </div>
+  
+          <button id="quickBookBtn">Book</button>
+        </div>
+     </div>
+
+    <!--  -->
+    
+    <!-- MARK: Header -->
+    <header>
+      <nav>
+        <a href="index.html"><img src="/logo.svg" alt="website_logo" draggable="false"></a>
+
+        <ul>
+          <li class="active"><a href="">Home</a></li>
+          <li><a href="./schedule.html">Schedule</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <div class="right-btns">
+          <div class="tickets-btn-container">
+            <button class="tickets-btn" id="ticketsToggle">Tickets</button>
+            <div class="scroll-box">
+              <div class="tickets-box hidden" id="ticketsBox">
+                <div class="content">
+                  <div class="test"></div>
+                  <div class="test"></div>
+                  <div class="test"></div>
+                  <!-- booked tickets -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="./login.html"><button class="login-btn">Log In</button></a>
+          <div class="burger-btn closed" id="menuBtn">
+            <img class="closed-icon" src="/icons/burger.svg" alt="menu" draggable="false">
+            <img class="open-icon" src="/icons/cross.svg" alt="menu" draggable="false">
+
+            <div class="menu-container hidden" id="menuBox">
+              <div class="content">
+                <p><a href="">Home</a></p>
+                <p><a href="./schedule.html">Schedule</a></p>
+                <p><a href="./contact.html">Contact</a></p>
+                <p><a href="./login.html">Log in</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hero-section">
+        <h1>
+          Every Frame, a Story. <br>
+          Every Seat, an Experience.
+        </h1>
+
+        <p>Immerse yourself in the magic of cinema with breathtaking visuals, crystal-clear sound, and an atmosphere designed for true movie lovers. Book your tickets now and enjoy an unforgettable experience on the big screen.</p>
+      </div>
+    </header>
+
+    <!-- MARK: About Section -->
+     <section class="about-section">
+      <div class="about-left">
+        <div class="about-text-card">
+          <p>Welcome to Capital Cinema – where movies come to life. Enjoy stunning visuals and a premium experience for every film.</p>
+
+          <div class="links">
+            <div class="social-links">
+              <a href="https://instagram.com" target="_blank"><img src="/icons/Instagram.svg" alt="instagram" draggable="false"></a>
+              <a href="https://facebook.com" target="_blank"><img src="/icons/Facebook.svg" alt="facebook" draggable="false"></a>
+              <a href="https://x.com" target="_blank"><img src="/icons/x.svg" alt="X" draggable="false"></a>
+              <a href="https://gmail.com" target="_blank"><img src="/icons/Email.svg" alt="Email" draggable="false"></a>
+            </div>
+
+            <a href="./contact.html" class="contact-btn">
+              <button>Contact</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-features-cards">
+          <div class="about-prices">
+            <h3>Ticket prices</h3>
+            <div class="prices-container">
+              <div class="price">
+                <p>Adult</p>
+                <p>25$</p>
+              </div>
+              <div class="price">
+                <p>Child</p>
+                <p>15$</p>
+              </div>
+              <div class="price">
+                <p>Student</p>
+                <p>18$</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-prices">
+            <h3>Snack prices</h3>
+            <div class="prices-container">
+              <div class="price">
+                <p>Popcorn</p>
+                <p>10$</p>
+              </div>
+              <div class="price">
+                <p>Chips</p>
+                <p>12$</p>
+              </div>
+              <div class="price">
+                <p>Nachos</p>
+                <p>16$</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-middle"></div>
+
+
+      <div class="about-right">
+        <div class="movie-trailer">
+          <video width="340" height="192" muted autoplay loop>
+            <source src="/trailer.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="next-movies">
+          <div class="top-part">
+            <h3>Next movies</h3>
+            <a href="./schedule.html">Show more</a>
+          </div>
+
+          <div class="next-movies-container">
+            <div class="movie">
+              <p class="date">21 mar.</p>
+              <p class="title">Captain America: Brave New World</p>
+            </div>
+
+            <div class="movie">
+              <p class="date">21 mar.</p>
+              <p class="title">The Monkey</p>
+            </div>
+
+            <div class="movie">
+              <p class="date">22 mar.</p>
+              <p class="title">Captain America: Brave New World</p>
+            </div>
+          </div>
+        </div>
+      </div>
+     </section>
+
+     <!-- MARK: Streaming now section -->
+
+     <section class="streaming-section">
+      <div class="section-title">
+        <div class="title-line"></div>
+        <img src="/icons/arrow-left.svg" alt="arr" draggable="false" class="slider-arrow" id="moviesPrev">
+        <h2>STREAMING NOW</h2>
+        <img src="/icons/arrow-right.svg" alt="arr" draggable="false" class="slider-arrow" id="moviesNext">
+        <div class="title-line"></div>
+      </div>
+
+      <div class="movies-slider-wrapper" id="moviesSliderWrapper">
+        <div class="movies-slider-track" id="moviesSliderTrack">
+          <!-- Slides -->
+        </div>
+      </div>
+     </section>
+
+      <!-- MARK: Testimonials -->
+      <section class="testimonials-section">
+        <div class="section-title">
+          <div class="title-line"></div>
+          <h2 class="long-title">what do our clients say</h2>
+          <h2 class="short-title">client reviews</h2>
+          <div class="title-line"></div>
+        </div>
+
+        <div class="testimonials-cards">
+          <div class="card">
+            <div class="gradient-cover"></div>
+            <div class="upper-text">
+              <p class="name">Elena M.</p>
+              <div class="text-wrapper">
+                <p class="text">Watching a premiere here feels exclusive. The atmosphere is elegant, and the service is top-notch!</p>
+              </div>
+            </div>
+            
+            <p class="number">01</p>
+          </div>
+
+          <div class="card">
+            <div class="gradient-cover"></div>
+            <div class="upper-text">
+              <p class="name">Daniel T.</p>
+              <div class="text-wrapper">
+                <p class="text">I love how well-organized everything is. Booking tickets is easy, and the cinema is always clean and welcoming.</p>
+              </div>
+            </div>
+            
+            <p class="number">02</p>
+          </div>
+
+          <div class="card">
+            <div class="gradient-cover"></div>
+            <div class="upper-text">
+              <p class="name">Sofia L.</p>
+              <div class="text-wrapper">
+                <p class="text">The best cinema in town! Their events and special screenings always bring something new and exciting.</p>
+              </div>
+            </div>
+            
+            <p class="number">03</p>
+          </div>
+
+          <div class="card">
+            <div class="gradient-cover"></div>
+            <div class="upper-text">
+              <p class="name">Alex M.</p>
+              <div class="text-wrapper">
+                <p class="text">Capital Cinema redefines the movie experience! The sound, the screen quality, and the comfortable seats make every film unforgettable.</p>
+              </div>
+            </div>
+            
+            <p class="number">04</p>
+          </div>
+
+          <div class="card">
+            <div class="gradient-cover"></div>
+            <div class="upper-text">
+              <p class="name">Michael C.</p>
+              <div class="text-wrapper">
+                <p class="text">Premium experience at a great price! The sound system is incredible, and the seats are so comfortable.</p>
+              </div>
+            </div>
+            
+            <p class="number">05</p>
+          </div>
+
+          <div class="card">
+            <div class="gradient-cover"></div>
+            <div class="upper-text">
+              <p class="name">Cristina P.</p>
+              <div class="text-wrapper">
+                <p class="text">A place where cinema truly feels like an art. I always enjoy coming here for a great movie night!</p>
+              </div>
+            </div>
+            
+            <p class="number">06</p>
+          </div>
+
+          <div class="card">
+            <div class="gradient-cover"></div>
+            <div class="upper-text">
+              <p class="name">Robert D.</p>
+              <div class="text-wrapper">
+                <p class="text">From blockbusters to indie films, Capital Cinema delivers. The ambiance is stylish, and the popcorn is amazing!</p>
+              </div>
+            </div>
+            
+            <p class="number">07</p>
+          </div>
+          
+        </div>
+      </section>
+
+
+      <!-- MARK: FAQ Section -->
+      <section class="faq-section">
+        <div class="section-title">
+          <div class="title-line"></div>
+          <h2 class="long-title">Frequently asked questions</h2>
+          <h2 class="short-title">FAQ</h2>
+          <div class="title-line"></div>
+        </div>
+
+        <div class="questions-container">
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>How can I book tickets online?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>You can book tickets directly on our website by selecting your movie, showtime, and preferred seats. Payment can be made securely online, and you'll receive a digital ticket via email.</p>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>Does Capital Cinema offer discounts for students?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>Yes! We offer discounted tickets for students. Just bring a valid ID when purchasing your ticket at the counter or select the discount option when booking online.</p>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>What types of movies do you screen?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>We feature a mix of the latest Hollywood blockbusters, independent films, and classic screenings. Special events and themed movie nights are also available.</p>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>Can I bring outside food and drinks?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>Outside food and drinks are not allowed. However, we offer a variety of snacks, popcorn, and beverages at our concession stand.</p>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <div class="question">
+              <div class="question-text">
+                <img src="/icons/square.svg" alt="bullet-point" draggable="false">
+                <p>What happens if I’m late for my movie?</p>
+              </div>
+
+              <img src="/icons/down-arr.svg" alt="arrow" draggable="false" class="faq-arrow">
+            </div>
+
+            <div class="answer">
+              <p>We recommend arriving at least 15 minutes before your showtime. If you’re late, you may still enter, but we encourage you to be mindful of other guests.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MARK: Footer -->
+      <footer>
+        <nav>
+          <a href="">
+            <img src="/logo.svg" alt="logo" draggable="false">
+          </a>
+
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="./schedule.html">Schedule</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <p>Copyright © 2025 CapitalCinema</p>
+      </footer>
+
+      <div id="bookingModal" class="confirm-modal-overlay hidden">
+        <div class="confirm-modal booking-modal">
+            <h3 id="bookingModalTitle">Select Seats</h3>
+            <p id="bookingModalDetails" class="modal-details"></p>
+            <div class="seats-container"></div>
+            <div class="legend">
+              <div class="category"><div class="circle reserved"></div><p>Reserved</p></div>
+              <div class="category"><div class="circle available"></div><p>Available</p></div>
+              <div class="category"><div class="circle selected"></div><p>Selected</p></div>
+            </div>
+            <div class="confirm-modal-btns" style="margin-top: 2rem;">
+                <button class="cancel-btn" id="closeBookingModal">Cancel</button>
+                <button class="confirm-btn" id="finalBookBtn">Confirm Booking</button>
+            </div>
+        </div>
+      </div>
+
+    <!-- Script -->
+    <script type="module" src="./js/shared.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/quickbook.js"></script>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+/* MARK: Schedule */
+
+.schedule-section{
+    max-width: 82rem;
+
+    margin: 7rem auto 0;
+}
+
+.dates-container{
+    display: flex;
+    gap: 0.5rem;
+    height: 2.5rem;
+}
+
+.dates-container .dates{
+    background-color: var(--dark-gray);
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    border-radius: 0.5rem;
+
+    padding: 0.5rem 1.5rem;
+}
+
+.dates-container .dates .vertical-line{
+    height: 1.5rem;
+    width: 1px;
+    background-color: var(--gray);
+}
+
+.dates-container .dates .date.active{
+    color: var(--white);
+}
+
+.dates-container .dates .date{
+    font-size: 1rem;
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.dates-container .dates .date:hover{
+    color: var(--white);
+}
+
+.dates-container .dates .date.disabled{
+    opacity: 0.5;
+}
+
+.dates-container .dates .hidden-dates{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    width: 0;
+    overflow: hidden;
+}
+
+.more-btn{
+    background-color: var(--dark-gray);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--light-gray);
+}
+
+.movies-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    margin-top: 2rem;
+}
+
+.movie-card{
+    display: flex;
+    gap: 2rem;
+}
+
+
+
+.movie-card-left{
+    height: 25rem;
+    max-width: 56.625rem;
+    background-color: var(--dark-gray);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.movie-card-left img{
+    height: 100%;
+    border-radius: 1rem;
+    filter: var(--filter);
+}
+
+.movie-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 1rem 1.5rem 1rem 0rem;
+}
+
+.movie-info .top-part h2{
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.movie-info .top-part .genres{
+    font-size: 1rem;
+    color: var(--light-gray);
+
+    margin-top: 0.25rem;
+}
+
+.movie-info .top-part .description{
+    font-size: 1rem;
+    color: var(--light-gray);
+
+    margin-top: 1rem;
+}
+
+.movie-info .top-part .hours{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.movie-info .top-part .hours .hour{
+    height: 2rem;
+    width: 6.25rem;
+    border-radius: 1rem;
+    background-color: var(--gray);
+    display: grid;
+    place-content: center;
+    font-size: 0.875rem;
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.movie-info .top-part .hours .hour.selected{
+    background-color: var(--white);
+    color: var(--dark-gray);
+}
+
+.movie-info .top-part .hours .hour:hover{
+    background-color: var(--white);
+    color: var(--dark-gray);
+}
+
+.movie-info .book-btn{
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--light-gray);
+    display: grid;
+    place-content: center;
+    font-size: 1rem;
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.movie-info .book-btn:hover{
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.movie-card{
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+}
+
+.movie-card-right{
+    height: 25rem;
+    background-color: var(--dark-gray);
+    flex: 1;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1.5rem;
+}
+
+.movie-card-right .title{
+    font-size: 1rem;
+    color: var(--white);
+}
+
+/* MARK: Media queries */
+
+@media (max-width: 1200px){
+    .schedule-section{
+        max-width: 25rem;
+        padding: 0 1rem;
+        margin-top: 4rem;
+    }
+
+    .movies-container{
+        gap: 3rem;
+    }
+
+    .movie-card{
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .movie-card-left{
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .movie-card-left img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .movie-info{
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+
+    .movie-card-right{
+        height: auto;
+        min-height: 20rem;
+        width: 100%;
+    }
+
+    .book-btn{
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
