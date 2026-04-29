@@ -77,4 +77,4 @@ Proiectul include funcționalități CRUD complete pentru patru entități major
 ---
 
 ## 👨‍💻 Autor
-Proiect realizat pentru disciplina **Proiectarea Interfețelor Grafice**.
+Proiect realizat pentru disciplina **Tehnologii Web**.
